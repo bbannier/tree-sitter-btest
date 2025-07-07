@@ -1,0 +1,287 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "btest",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "alternative"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "copy_file"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "doc"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "exec"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "exec_fail"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "group"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ignore"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "measure_time"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "not_alternative"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "port"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "requires"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "serialize"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "start_next"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "start_file"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "end_file"
+          }
+        ]
+      }
+    },
+    "alternative": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-ALTERNATIVE:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "copy_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-COPY-FILE:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "doc": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-DOC:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "exec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-EXEC:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sh"
+        }
+      ]
+    },
+    "exec_fail": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-EXEC-FAIL:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sh"
+        }
+      ]
+    },
+    "group": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-GROUP:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "ignore": {
+      "type": "STRING",
+      "value": "@TEST-IGNORE"
+    },
+    "measure_time": {
+      "type": "STRING",
+      "value": "@TEST-MEASURE_TIME"
+    },
+    "not_alternative": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-NOT-ALTERNATIVE:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "port": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-PORT:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "requires": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-REQUIRES:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sh"
+        }
+      ]
+    },
+    "serialize": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-SERIALIZE:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "start_next": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-START-NEXT"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "start_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@TEST-START-FILE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "end_file": {
+      "type": "STRING",
+      "value": "@TEST-END-FILE"
+    },
+    "sh": {
+      "type": "PATTERN",
+      "value": "[^\\r\\n\\u2028\\u2029]*"
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
+    },
+    "string": {
+      "type": "PATTERN",
+      "value": "[^\\r\\n\\u2028\\u2029]*"
+    },
+    "ext": {
+      "type": "SYMBOL",
+      "name": "string"
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "#[^\\r\\n]*"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "[\\s\\f\\uFEFF\\u2060\\u200B]|\\\\\\r?\\n"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "literal_file"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "error_sentinel"
+    }
+  ],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}

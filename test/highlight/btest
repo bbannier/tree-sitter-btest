@@ -1,0 +1,54 @@
+@TEST-ALTERNATIVE: alt
+# <- macro
+#                  ^ string
+
+@TEST-COPY-FILE: file
+# <- macro
+#                ^ string
+
+@TEST-DOC: docstring
+# <- macro
+#          ^ string
+
+@TEST-EXEC: false
+# <- macro
+#           ^ none
+
+@TEST-EXEC-FAIL: true
+# <- macro
+#                ^ none
+
+@TEST-GROUP: groupname
+# <- macro
+#            ^ string
+
+@TEST-IGNORE
+# <- macro
+
+@TEST-MEASURE_TIME
+# <- macro
+
+@TEST-NOT-ALTERNATIVE: alt
+# <- macro
+#                      ^ string
+
+@TEST-PORT: 4711
+# <- macro
+#           ^ number
+
+@TEST-REQUIRES: true
+# <- macro
+#               ^ none
+
+@TEST-SERIALIZE: set
+# <- macro
+#                ^ string
+
+@TEST-START-NEXT
+# <- macro
+#
+@TEST-START-FILE file.zeek
+# <- macro
+#                ^ string
+@TEST-END-FILE
+# <- macro
