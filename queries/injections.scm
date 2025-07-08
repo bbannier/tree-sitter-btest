@@ -8,6 +8,11 @@
   (#set! injection.language "sh")
 )
 
+(requires
+  (sh) @injection.content
+  (#set! injection.language "sh")
+)
+
 ; (start_end_file
 ;   (literal_file) @injection.content
 ;   (#set! injection.language "sh")
