@@ -178,7 +178,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "number"
+          "name": "string"
         }
       ]
     },

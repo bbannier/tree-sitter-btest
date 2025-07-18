@@ -32,9 +32,9 @@
 # <- macro
 #                      ^ string
 
-@TEST-PORT: 4711
+@TEST-PORT: ENV_VAR
 # <- macro
-#           ^ number
+#           ^ string
 
 @TEST-REQUIRES: true
 # <- macro

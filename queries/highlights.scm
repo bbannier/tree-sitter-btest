@@ -15,5 +15,4 @@
 (end_file) @macro
 
 (sh) @none
-(number) @number
 (string) @string
